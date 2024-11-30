@@ -123,7 +123,7 @@ const Main = () => {
   return (
     <div 
       ref={containerRef} // 스크롤을 감지할 특정 div에 Ref를 바인딩
-      className="flex flex-col w-full overflow-auto scrollbar-hide pt-14"
+      className="flex flex-col w-full overflow-auto scrollbar-hide pt-14 h-screen bg-grayscale-5"
       /*
       style={{
         height: '1000px', // 높이를 설정하여 스크롤을 발생시킬 수 있도록
@@ -132,7 +132,7 @@ const Main = () => {
       */
       >
       <Header />
-      <div className="flex-1 px-4 pb-24 bg-grayscale-5">
+      <div className="flex-1 px-4 pb-24">
         <p className="text-xl font-bold text-grayscale-90 pt-5 text-left w-full">
           오늘은 어느 야구장에 방문하시나요?
         </p>
