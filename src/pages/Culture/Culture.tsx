@@ -11,9 +11,20 @@ import Entertainment from "./Entertainment/Entertainment";
 import ServiceReady from "../../components/page/ServiceReady";
 import { StadiumType } from "../../constants/ZoneData";
 
+import { useStadiumContext } from "@/src/context/StadiumContext";
+
 const Culture = () => {
   const [selectedTab, setSelectedTab] = useState<"먹거리" | "즐길거리">("먹거리");
-  const [selectedStadium, setSelectedStadium] = useState<StadiumType>(StadiumType.JAMSIL); // 경기장 상태 관리
+  
+  // 전역 스타디움 관리
+  const context = useStadiumContext();
+  if (!context) { // 예외 처리
+    return <div>스타디움 값을 못 가져왔습니다.</div>;
+  }
+  const { 
+    selectedStadium, setSelectedStadium
+  } = context;
+
 
   const handleTabSelect = (tab: "먹거리" | "즐길거리") => {
     setSelectedTab(tab);

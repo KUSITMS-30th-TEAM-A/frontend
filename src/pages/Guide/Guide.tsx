@@ -14,10 +14,10 @@ import { handleGetStadiumInfo } from "@/src/api/StadiumApiHandler"; // API 호�
 import { useStadiumContext } from "@/src/context/StadiumContext";
 
 const Guide = () => {
+  // 전역 스타디움 관리
   const context = useStadiumContext();
-  if (!context) {
-    // 예외 처리: context가 없으면 에러를 던지거나 기본값을 사용
-    return <div>Loading...</div>;
+  if (!context) { // 예외 처리
+    return <div>스타디움 값을 못 가져왔습니다.</div>;
   }
   const { 
     selectedStadium, setSelectedStadium, 

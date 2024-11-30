@@ -29,11 +29,10 @@ const Main = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false); // 준비 중 팝업 상태
 
-  // 메인홈 스타디움 관리
+  // 전역 스타디움 관리
   const context = useStadiumContext();
-  if (!context) {
-    // 예외 처리: context가 없으면 에러를 던지거나 기본값을 사용
-    return <div>Loading...</div>;
+  if (!context) { // 예외 처리
+    return <div>스타디움 값을 못 가져왔습니다.</div>;
   }
   const { 
     selectedStadium, setSelectedStadium
