@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+
 import CultureHeader from "../../components/layout/CultureHeader";
 import NavBar from "../../components/layout/NavBar";
 import cultureData from "../../constants/CultureData";
@@ -16,6 +18,22 @@ const Culture = () => {
   const handleTabSelect = (tab: "먹거리" | "즐길거리") => {
     setSelectedTab(tab);
   };
+
+
+  const router = useRouter();
+  useEffect(() => {
+    // 추천 결과 페이지에서 왔을 때, 스타디움 값을 쿼리 파라미터로 가져오기
+    if (router.query.stadiumName) {
+      const stadiumName = router.query.stadiumName as StadiumType;
+      
+      // 확인
+      console.log("야구 문화 페이지로 리다이렉트 했슴다: ")
+      console.log(stadiumName);
+      setSelectedStadium(stadiumName);
+    }
+    
+  }, [router.query]);
+  
 
   // 수원KT야구장 선택 시 준비 중인 페이지 렌더링
   if (selectedStadium === StadiumType.SUWON_KT) {

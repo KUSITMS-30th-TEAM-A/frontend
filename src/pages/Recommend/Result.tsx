@@ -181,7 +181,7 @@ const Page = ({/*stadium,*/ resultId, setResultId}: Props) => {
         router.push({
             pathname: '/recommend/question',  // 리다이렉트할 경로
             query: {                          // 쿼리 파라미터 전달
-            stadiumName: selectedStadium,
+                stadiumName: selectedStadium,
             },
         });
     };
@@ -194,13 +194,13 @@ const Page = ({/*stadium,*/ resultId, setResultId}: Props) => {
         router.push({
             pathname: '/culture',  // 리다이렉트할 경로
             query: {                          // 쿼리 파라미터 전달
-            stadiumName: selectedStadium,
+                stadiumName: selectedStadium,
             },
         });
     };
 
 
-    
+
     /////////////////////////////////////////////
     // 반응형 이벤트
     const { isSmall, isMedium, isLarge, isExtraLarge } = useScreenWidth();
