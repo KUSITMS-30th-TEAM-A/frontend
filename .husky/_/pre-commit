@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname "$0")/husky.sh"
+
+# commit 후 실행할 명령어 작성
+# lint-staged: pacakge.json에 작성한 스크립트명과 이름 맞추기
+npx prettier --write .
+npx eslint --cache . --fix
+npx lint-staged
+npx tsc --noEmit
