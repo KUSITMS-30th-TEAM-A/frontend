@@ -29,11 +29,10 @@ const Main = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false); // 준비 중 팝업 상태
 
-  // 메인홈 스타디움 관리
+  // 전역 스타디움 관리
   const context = useStadiumContext();
-  if (!context) {
-    // 예외 처리: context가 없으면 에러를 던지거나 기본값을 사용
-    return <div>Loading...</div>;
+  if (!context) { // 예외 처리
+    return <div>스타디움 값을 못 가져왔습니다.</div>;
   }
   const { 
     selectedStadium, setSelectedStadium
@@ -123,7 +122,7 @@ const Main = () => {
   return (
     <div 
       ref={containerRef} // 스크롤을 감지할 특정 div에 Ref를 바인딩
-      className="flex flex-col w-full overflow-auto scrollbar-hide pt-14"
+      className="flex flex-col w-full overflow-auto scrollbar-hide pt-14 h-screen bg-grayscale-5"
       /*
       style={{
         height: '1000px', // 높이를 설정하여 스크롤을 발생시킬 수 있도록
@@ -132,7 +131,7 @@ const Main = () => {
       */
       >
       <Header />
-      <div className="flex-1 px-4 pb-24 bg-grayscale-5">
+      <div className="flex-1 px-4 pb-24">
         <p className="text-xl font-bold text-grayscale-90 pt-5 text-left w-full">
           오늘은 어느 야구장에 방문하시나요?
         </p>

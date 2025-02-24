@@ -156,18 +156,6 @@ const Page = ({/*stadium,*/ resultId, setResultId}: Props) => {
         });
     }
 
-    /////////////////////////////////////////////
-    // 추천 다시 받기 버튼 클릭 시 리다이렉트 이벤트
-    const handleRedirectToRecommendation = () => {
-        // 추천 다시 받기 페이지로 리다이렉트
-        router.push({
-            pathname: '/recommend/question',  // 리다이렉트할 경로
-            query: {                          // 쿼리 파라미터 전달
-            stadiumName: selectedStadium,
-            },
-        });
-    };
-
 
     /////////////////////////////////////////////
     // 예매하러 가기 버튼 클릭 시 모달창 띄우기 이벤트
@@ -184,6 +172,33 @@ const Page = ({/*stadium,*/ resultId, setResultId}: Props) => {
         router.push('/booking');
     };
     */
+
+
+    /////////////////////////////////////////////
+    // 추천 다시 받기 버튼 클릭 시 리다이렉트 이벤트
+    const handleRedirectToRecommendation = () => {
+        // 추천 다시 받기 페이지로 리다이렉트
+        router.push({
+            pathname: '/recommend/question',  // 리다이렉트할 경로
+            query: {                          // 쿼리 파라미터 전달
+                stadiumName: selectedStadium,
+            },
+        });
+    };
+
+
+    /////////////////////////////////////////////
+    // 문화 페이지로 이동 버튼 클릭 시 리다이렉트 이벤트
+    const handleRedirectToCulture = () => {
+        // 추천 다시 받기 페이지로 리다이렉트
+        router.push({
+            pathname: '/culture',  // 리다이렉트할 경로
+            query: {                          // 쿼리 파라미터 전달
+                stadiumName: selectedStadium,
+            },
+        });
+    };
+
 
 
     /////////////////////////////////////////////
@@ -388,7 +403,7 @@ const Page = ({/*stadium,*/ resultId, setResultId}: Props) => {
                         {/* 이후에 잠실, KT 야구장 각각 다르게 설정 필요 */}
                         <div 
                             className="bg-main-10 rounded-[8px] cursor-pointer w-full py-3"
-                            onClick={() => window.location.href = "/culture"}
+                            onClick={handleRedirectToCulture}
                         >
                             <p className="text-md text-main-60 font-semibold">
                                 직관 필수 코스, 한눈에 살펴보기!
